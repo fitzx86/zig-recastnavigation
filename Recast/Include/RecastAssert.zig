@@ -11,7 +11,7 @@ pub const rcAssertFailFunc = fn ([*c]const u8, [*c]const u8, c_int) callconv(.C)
 
 extern fn _1_rcAssertFailSetCustom_(assertFailFunc: [*c]rcAssertFailFunc) void;
 /// Sets the base custom assertion failure function to be used by Recast.
-///  @param[in] assertFailFunc 	The function to be used in case of failure of #dtAssert
+///  @param[in] assertFailFunc     The function to be used in case of failure of #dtAssert
 pub const rcAssertFailSetCustom = _1_rcAssertFailSetCustom_;
 
 extern fn _1_rcAssertFailGetCustom_() [*c]rcAssertFailFunc;

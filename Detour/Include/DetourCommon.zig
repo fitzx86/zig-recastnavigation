@@ -9,8 +9,8 @@ pub fn dtIgnoreUnused(comptime T: anytype, arg_0: *const T) void {
 }
 
 /// Swaps the values of the two parameters.
-///  @param[in,out] a 	Value A
-///  @param[in,out] b 	Value B
+///  @param[in,out] a     Value A
+///  @param[in,out] b     Value B
 pub inline fn dtSwap(comptime T: anytype, a: *T, b: *T) void {
     const t: T = a;
     a = b;
@@ -18,39 +18,39 @@ pub inline fn dtSwap(comptime T: anytype, a: *T, b: *T) void {
 }
 
 /// Returns the minimum of two values.
-///  @param[in] a 	Value A
-///  @param[in] b 	Value B
+///  @param[in] a     Value A
+///  @param[in] b     Value B
 ///  @see The minimum of the two values.
 pub inline fn dtMin(comptime T: anytype, a: T, b: T) T {
     return if (a < b) a else b;
 }
 
 /// Returns the maximum of two values.
-///  @param[in] a 	Value A
-///  @param[in] b 	Value B
+///  @param[in] a     Value A
+///  @param[in] b     Value B
 ///  @see The maximum of the two values.
 pub inline fn dtMax(comptime T: anytype, a: T, b: T) T {
     return if (a > b) a else b;
 }
 
 /// Returns the absolute value.
-///  @param[in] a 	The value.
+///  @param[in] a     The value.
 ///  @see The absolute value of the specified value.
 pub inline fn dtAbs(comptime T: anytype, a: T) T {
     return if (a < 0) -a else a;
 }
 
 /// Returns the square of the value.
-///  @param[in] a 	The value.
+///  @param[in] a     The value.
 ///  @see The square of the value.
 pub inline fn dtSqr(comptime T: anytype, a: T) T {
     return a * a;
 }
 
 /// Clamps the value to the specified range.
-///  @param[in] v 	The value to clamp.
-///  @param[in] mn 	The minimum permitted return value.
-///  @param[in] mx 	The maximum permitted return value.
+///  @param[in] v     The value to clamp.
+///  @param[in] mn     The minimum permitted return value.
+///  @param[in] mx     The maximum permitted return value.
 ///  @see The value, clamped to the specified range.
 pub inline fn dtClamp(comptime T: anytype, v: T, mn: T, mx: T) T {
     return if (v < mn) mn else (if (v > mx) mx else v);
@@ -61,9 +61,9 @@ extern fn _1_dtVcross_(dest: [*c]f32, v1: [*c]const f32, v2: [*c]const f32) void
 ///@p
 /// x
 ///@p
-///  @param[out] dest 	The cross product. [(x, y, z)]
-///  @param[in] v1 		A Vector [(x, y, z)]
-///  @param[in] v2 		A vector [(x, y, z)]
+///  @param[out] dest     The cross product. [(x, y, z)]
+///  @param[in] v1         A Vector [(x, y, z)]
+///  @param[in] v2         A vector [(x, y, z)]
 pub const dtVcross = _1_dtVcross_;
 
 extern fn _1_dtVdot_(v1: [*c]const f32, v2: [*c]const f32) f32;
@@ -71,8 +71,8 @@ extern fn _1_dtVdot_(v1: [*c]const f32, v2: [*c]const f32) f32;
 ///@p
 /// .
 ///@p
-///  @param[in] v1 	A Vector [(x, y, z)]
-///  @param[in] v2 	A vector [(x, y, z)]
+///  @param[in] v1     A Vector [(x, y, z)]
+///  @param[in] v2     A vector [(x, y, z)]
 /// @see The dot product.
 pub const dtVdot = _1_dtVdot_;
 
@@ -83,12 +83,12 @@ extern fn _1_dtVmad_(dest: [*c]f32, v1: [*c]const f32, v2: [*c]const f32, s: f32
 ///@p
 /// *
 ///@p
-///  @param[out] dest 	The result vector. [(x, y, z)]
-///  @param[in] v1 		The base vector. [(x, y, z)]
-///  @param[in] v2 		The vector to scale and add to
+///  @param[out] dest     The result vector. [(x, y, z)]
+///  @param[in] v1         The base vector. [(x, y, z)]
+///  @param[in] v2         The vector to scale and add to
 ///@p
 /// [(x, y, z)]
-///  @param[in] s 		The amount to scale
+///  @param[in] s         The amount to scale
 ///@p
 /// by before adding to
 ///@p
@@ -99,10 +99,10 @@ extern fn _1_dtVlerp_(dest: [*c]f32, v1: [*c]const f32, v2: [*c]const f32, t: f3
 ///@p
 /// toward
 ///@p
-///  @param[out] dest 	The result vector. [(x, y, x)]
-///  @param[in] v1 		The starting vector.
-///  @param[in] v2 		The destination vector.
-///	 @param[in] t 		The interpolation factor. [Limits: 0
+///  @param[out] dest     The result vector. [(x, y, x)]
+///  @param[in] v1         The starting vector.
+///  @param[in] v2         The destination vector.
+///     @param[in] t         The interpolation factor. [Limits: 0
 ///<
 ///= value
 ///<
@@ -114,9 +114,9 @@ extern fn _1_dtVadd_(dest: [*c]f32, v1: [*c]const f32, v2: [*c]const f32) void;
 ///@p
 /// +
 ///@p
-///  @param[out] dest 	The result vector. [(x, y, z)]
-///  @param[in] v1 		The base vector. [(x, y, z)]
-///  @param[in] v2 		The vector to add to
+///  @param[out] dest     The result vector. [(x, y, z)]
+///  @param[in] v1         The base vector. [(x, y, z)]
+///  @param[in] v2         The vector to add to
 ///@p
 /// [(x, y, z)]
 pub const dtVadd = _1_dtVadd_;
@@ -126,9 +126,9 @@ extern fn _1_dtVsub_(dest: [*c]f32, v1: [*c]const f32, v2: [*c]const f32) void;
 ///@p
 /// -
 ///@p
-///  @param[out] dest 	The result vector. [(x, y, z)]
-///  @param[in] v1 		The base vector. [(x, y, z)]
-///  @param[in] v2 		The vector to subtract from
+///  @param[out] dest     The result vector. [(x, y, z)]
+///  @param[in] v1         The base vector. [(x, y, z)]
+///  @param[in] v2         The vector to subtract from
 ///@p
 /// [(x, y, z)]
 pub const dtVsub = _1_dtVsub_;
@@ -138,35 +138,35 @@ extern fn _1_dtVscale_(dest: [*c]f32, v: [*c]const f32, t: f32) void;
 ///@p
 /// *
 ///@p
-///  @param[out] dest 	The result vector. [(x, y, z)]
-///  @param[in] v 		The vector to scale. [(x, y, z)]
-///  @param[in] t 		The scaling factor.
+///  @param[out] dest     The result vector. [(x, y, z)]
+///  @param[in] v         The vector to scale. [(x, y, z)]
+///  @param[in] t         The scaling factor.
 pub const dtVscale = _1_dtVscale_;
 
 extern fn _1_dtVmin_(mn: [*c]f32, v: [*c]const f32) void;
 /// Selects the minimum value of each element from the specified vectors.
-///  @param[in,out] mn 	A vector.  (Will be updated with the result.) [(x, y, z)]
-///  @param[in] v 	A vector. [(x, y, z)]
+///  @param[in,out] mn     A vector.  (Will be updated with the result.) [(x, y, z)]
+///  @param[in] v     A vector. [(x, y, z)]
 pub const dtVmin = _1_dtVmin_;
 
 extern fn _1_dtVmax_(mx: [*c]f32, v: [*c]const f32) void;
 /// Selects the maximum value of each element from the specified vectors.
-///  @param[in,out] mx 	A vector.  (Will be updated with the result.) [(x, y, z)]
-///  @param[in] v 	A vector. [(x, y, z)]
+///  @param[in,out] mx     A vector.  (Will be updated with the result.) [(x, y, z)]
+///  @param[in] v     A vector. [(x, y, z)]
 pub const dtVmax = _1_dtVmax_;
 
 extern fn _1_dtVset_(dest: [*c]f32, x: f32, y: f32, z: f32) void;
 /// Sets the vector elements to the specified values.
-///  @param[out] dest 	The result vector. [(x, y, z)]
-///  @param[in] x 		The x-value of the vector.
-///  @param[in] y 		The y-value of the vector.
-///  @param[in] z 		The z-value of the vector.
+///  @param[out] dest     The result vector. [(x, y, z)]
+///  @param[in] x         The x-value of the vector.
+///  @param[in] y         The y-value of the vector.
+///  @param[in] z         The z-value of the vector.
 pub const dtVset = _1_dtVset_;
 
 extern fn _1_dtVcopy_(dest: [*c]f32, a: [*c]const f32) void;
 /// Performs a vector copy.
-///  @param[out] dest 	The result. [(x, y, z)]
-///  @param[in] a 		The vector to copy. [(x, y, z)]
+///  @param[out] dest     The result. [(x, y, z)]
+///  @param[in] a         The vector to copy. [(x, y, z)]
 pub const dtVcopy = _1_dtVcopy_;
 
 extern fn _1_dtVlen_(v: [*c]const f32) f32;
@@ -183,22 +183,22 @@ pub const dtVlenSqr = _1_dtVlenSqr_;
 
 extern fn _1_dtVdist_(v1: [*c]const f32, v2: [*c]const f32) f32;
 /// Returns the distance between two points.
-///  @param[in] v1 	A point. [(x, y, z)]
-///  @param[in] v2 	A point. [(x, y, z)]
+///  @param[in] v1     A point. [(x, y, z)]
+///  @param[in] v2     A point. [(x, y, z)]
 /// @see The distance between the two points.
 pub const dtVdist = _1_dtVdist_;
 
 extern fn _1_dtVdistSqr_(v1: [*c]const f32, v2: [*c]const f32) f32;
 /// Returns the square of the distance between two points.
-///  @param[in] v1 	A point. [(x, y, z)]
-///  @param[in] v2 	A point. [(x, y, z)]
+///  @param[in] v1     A point. [(x, y, z)]
+///  @param[in] v2     A point. [(x, y, z)]
 /// @see The square of the distance between the two points.
 pub const dtVdistSqr = _1_dtVdistSqr_;
 
 extern fn _1_dtVdist2D_(v1: [*c]const f32, v2: [*c]const f32) f32;
 /// Derives the distance between the specified points on the xz-plane.
-///  @param[in] v1 	A point. [(x, y, z)]
-///  @param[in] v2 	A point. [(x, y, z)]
+///  @param[in] v1     A point. [(x, y, z)]
+///  @param[in] v2     A point. [(x, y, z)]
 /// @see The distance between the point on the xz-plane.
 ///
 /// The vectors are projected onto the xz-plane, so the y-values are ignored.
@@ -206,20 +206,20 @@ pub const dtVdist2D = _1_dtVdist2D_;
 
 extern fn _1_dtVdist2DSqr_(v1: [*c]const f32, v2: [*c]const f32) f32;
 /// Derives the square of the distance between the specified points on the xz-plane.
-///  @param[in] v1 	A point. [(x, y, z)]
-///  @param[in] v2 	A point. [(x, y, z)]
+///  @param[in] v1     A point. [(x, y, z)]
+///  @param[in] v2     A point. [(x, y, z)]
 /// @see The square of the distance between the point on the xz-plane.
 pub const dtVdist2DSqr = _1_dtVdist2DSqr_;
 
 extern fn _1_dtVnormalize_(v: [*c]f32) void;
 /// Normalizes the vector.
-///  @param[in,out] v 	The vector to normalize. [(x, y, z)]
+///  @param[in,out] v     The vector to normalize. [(x, y, z)]
 pub const dtVnormalize = _1_dtVnormalize_;
 
 extern fn _1_dtVequal_(p0: [*c]const f32, p1: [*c]const f32) bool;
 /// Performs a 'sloppy' colocation check of the specified points.
-///  @param[in] p0 	A point. [(x, y, z)]
-///  @param[in] p1 	A point. [(x, y, z)]
+///  @param[in] p0     A point. [(x, y, z)]
+///  @param[in] p1     A point. [(x, y, z)]
 /// @see True if the points are considered to be at the same location.
 ///
 /// Basically, this function will return true if the specified points are
@@ -228,14 +228,14 @@ pub const dtVequal = _1_dtVequal_;
 
 extern fn _1_dtVisfinite_(v: [*c]const f32) bool;
 /// Checks that the specified vector's components are all finite.
-///  @param[in] v 	A point. [(x, y, z)]
+///  @param[in] v     A point. [(x, y, z)]
 /// @see True if all of the point's components are finite, i.e. not NaN
 /// or any of the infinities.
 pub const dtVisfinite = _1_dtVisfinite_;
 
 extern fn _1_dtVisfinite2D_(v: [*c]const f32) bool;
 /// Checks that the specified vector's 2D components are finite.
-///  @param[in] v 	A point. [(x, y, z)]
+///  @param[in] v     A point. [(x, y, z)]
 pub const dtVisfinite2D = _1_dtVisfinite2D_;
 
 extern fn _1_dtVdot2D_(u: [*c]const f32, v: [*c]const f32) f32;
@@ -243,8 +243,8 @@ extern fn _1_dtVdot2D_(u: [*c]const f32, v: [*c]const f32) f32;
 ///@p
 /// .
 ///@p
-///  @param[in] u 		A vector [(x, y, z)]
-///  @param[in] v 		A vector [(x, y, z)]
+///  @param[in] u         A vector [(x, y, z)]
+///  @param[in] v         A vector [(x, y, z)]
 /// @see The dot product on the xz-plane.
 ///
 /// The vectors are projected onto the xz-plane, so the y-values are ignored.
@@ -252,8 +252,8 @@ pub const dtVdot2D = _1_dtVdot2D_;
 
 extern fn _1_dtVperp2D_(u: [*c]const f32, v: [*c]const f32) f32;
 /// Derives the xz-plane 2D perp product of the two vectors. (uz*vx - ux*vz)
-///  @param[in] u 		The LHV vector [(x, y, z)]
-///  @param[in] v 		The RHV vector [(x, y, z)]
+///  @param[in] u         The LHV vector [(x, y, z)]
+///  @param[in] v         The RHV vector [(x, y, z)]
 /// @see The perp dot product on the xz-plane.
 ///
 /// The vectors are projected onto the xz-plane, so the y-values are ignored.
@@ -261,48 +261,48 @@ pub const dtVperp2D = _1_dtVperp2D_;
 
 extern fn _1_dtTriArea2D_(a: [*c]const f32, b: [*c]const f32, c: [*c]const f32) f32;
 /// Derives the signed xz-plane area of the triangle ABC, or the relationship of line AB to point C.
-///  @param[in] a 		Vertex A. [(x, y, z)]
-///  @param[in] b 		Vertex B. [(x, y, z)]
-///  @param[in] c 		Vertex C. [(x, y, z)]
+///  @param[in] a         Vertex A. [(x, y, z)]
+///  @param[in] b         Vertex B. [(x, y, z)]
+///  @param[in] c         Vertex C. [(x, y, z)]
 /// @see The signed xz-plane area of the triangle.
 pub const dtTriArea2D = _1_dtTriArea2D_;
 
 extern fn _1_dtOverlapQuantBounds_(amin: [*c]const c_ushort, amax: [*c]const c_ushort, bmin: [*c]const c_ushort, bmax: [*c]const c_ushort) bool;
 /// Determines if two axis-aligned bounding boxes overlap.
-///  @param[in] amin 	Minimum bounds of box A. [(x, y, z)]
-///  @param[in] amax 	Maximum bounds of box A. [(x, y, z)]
-///  @param[in] bmin 	Minimum bounds of box B. [(x, y, z)]
-///  @param[in] bmax 	Maximum bounds of box B. [(x, y, z)]
+///  @param[in] amin     Minimum bounds of box A. [(x, y, z)]
+///  @param[in] amax     Maximum bounds of box A. [(x, y, z)]
+///  @param[in] bmin     Minimum bounds of box B. [(x, y, z)]
+///  @param[in] bmax     Maximum bounds of box B. [(x, y, z)]
 /// @see True if the two AABB's overlap.
 /// @see dtOverlapBounds
 pub const dtOverlapQuantBounds = _1_dtOverlapQuantBounds_;
 
 extern fn _1_dtOverlapBounds_(amin: [*c]const f32, amax: [*c]const f32, bmin: [*c]const f32, bmax: [*c]const f32) bool;
 /// Determines if two axis-aligned bounding boxes overlap.
-///  @param[in] amin 	Minimum bounds of box A. [(x, y, z)]
-///  @param[in] amax 	Maximum bounds of box A. [(x, y, z)]
-///  @param[in] bmin 	Minimum bounds of box B. [(x, y, z)]
-///  @param[in] bmax 	Maximum bounds of box B. [(x, y, z)]
+///  @param[in] amin     Minimum bounds of box A. [(x, y, z)]
+///  @param[in] amax     Maximum bounds of box A. [(x, y, z)]
+///  @param[in] bmin     Minimum bounds of box B. [(x, y, z)]
+///  @param[in] bmax     Maximum bounds of box B. [(x, y, z)]
 /// @see True if the two AABB's overlap.
 /// @see dtOverlapQuantBounds
 pub const dtOverlapBounds = _1_dtOverlapBounds_;
 
 extern fn _1_dtClosestPtPointTriangle_(closest: [*c]f32, p: [*c]const f32, a: [*c]const f32, b: [*c]const f32, c: [*c]const f32) void;
 /// Derives the closest point on a triangle from the specified reference point.
-///  @param[out] closest 	The closest point on the triangle.
-///  @param[in] p 		The reference point from which to test. [(x, y, z)]
-///  @param[in] a 		Vertex A of triangle ABC. [(x, y, z)]
-///  @param[in] b 		Vertex B of triangle ABC. [(x, y, z)]
-///  @param[in] c 		Vertex C of triangle ABC. [(x, y, z)]
+///  @param[out] closest     The closest point on the triangle.
+///  @param[in] p         The reference point from which to test. [(x, y, z)]
+///  @param[in] a         Vertex A of triangle ABC. [(x, y, z)]
+///  @param[in] b         Vertex B of triangle ABC. [(x, y, z)]
+///  @param[in] c         Vertex C of triangle ABC. [(x, y, z)]
 pub const dtClosestPtPointTriangle = _1_dtClosestPtPointTriangle_;
 
 extern fn _1_dtClosestHeightPointTriangle_(p: [*c]const f32, a: [*c]const f32, b: [*c]const f32, c: [*c]const f32, h: *f32) bool;
 /// Derives the y-axis height of the closest point on the triangle from the specified reference point.
-///  @param[in] p 		The reference point from which to test. [(x, y, z)]
-///  @param[in] a 		Vertex A of triangle ABC. [(x, y, z)]
-///  @param[in] b 		Vertex B of triangle ABC. [(x, y, z)]
-///  @param[in] c 		Vertex C of triangle ABC. [(x, y, z)]
-///  @param[out] h 		The resulting height.
+///  @param[in] p         The reference point from which to test. [(x, y, z)]
+///  @param[in] a         Vertex A of triangle ABC. [(x, y, z)]
+///  @param[in] b         Vertex B of triangle ABC. [(x, y, z)]
+///  @param[in] c         Vertex C of triangle ABC. [(x, y, z)]
+///  @param[out] h         The resulting height.
 pub const dtClosestHeightPointTriangle = _1_dtClosestHeightPointTriangle_;
 
 extern fn _1_dtIntersectSegmentPoly2D_(p0: [*c]const f32, p1: [*c]const f32, verts: [*c]const f32, nverts: c_int, tmin: *f32, tmax: *f32, segMin: *c_int, segMax: *c_int) bool;
@@ -313,10 +313,10 @@ pub const dtIntersectSegSeg2D = _1_dtIntersectSegSeg2D_;
 
 extern fn _1_dtPointInPolygon_(pt: [*c]const f32, verts: [*c]const f32, nverts: c_int) bool;
 /// Determines if the specified point is inside the convex polygon on the xz-plane.
-///  @param[in] pt 		The point to check. [(x, y, z)]
-///  @param[in] verts 	The polygon vertices. [(x, y, z) *
+///  @param[in] pt         The point to check. [(x, y, z)]
+///  @param[in] verts     The polygon vertices. [(x, y, z) *
 ///@p
-///  @param[in] nverts 	The number of vertices. [Limit: >= 3]
+///  @param[in] nverts     The number of vertices. [Limit: >= 3]
 /// @see True if the point is inside the polygon.
 pub const dtPointInPolygon = _1_dtPointInPolygon_;
 
@@ -328,21 +328,21 @@ pub const dtDistancePtSegSqr2D = _1_dtDistancePtSegSqr2D_;
 
 extern fn _1_dtCalcPolyCenter_(tc: [*c]f32, idx: [*c]const c_ushort, nidx: c_int, verts: [*c]const f32) void;
 /// Derives the centroid of a convex polygon.
-///  @param[out] tc 		The centroid of the polgyon. [(x, y, z)]
-///  @param[in] idx 		The polygon indices. [(vertIndex) *
+///  @param[out] tc         The centroid of the polgyon. [(x, y, z)]
+///  @param[in] idx         The polygon indices. [(vertIndex) *
 ///@p
-///  @param[in] nidx 	The number of indices in the polygon. [Limit: >= 3]
-///  @param[in] verts 	The polygon vertices. [(x, y, z) * vertCount]
+///  @param[in] nidx     The number of indices in the polygon. [Limit: >= 3]
+///  @param[in] verts     The polygon vertices. [(x, y, z) * vertCount]
 pub const dtCalcPolyCenter = _1_dtCalcPolyCenter_;
 
 extern fn _1_dtOverlapPolyPoly2D_(polya: [*c]const f32, npolya: c_int, polyb: [*c]const f32, npolyb: c_int) bool;
 /// Determines if the two convex polygons overlap on the xz-plane.
-///  @param[in] polya 		Polygon A vertices.	[(x, y, z) *
+///  @param[in] polya         Polygon A vertices.    [(x, y, z) *
 ///@p
-///  @param[in] npolya 		The number of vertices in polygon A.
-///  @param[in] polyb 		Polygon B vertices.	[(x, y, z) *
+///  @param[in] npolya         The number of vertices in polygon A.
+///  @param[in] polyb         Polygon B vertices.    [(x, y, z) *
 ///@p
-///  @param[in] npolyb 		The number of vertices in polygon B.
+///  @param[in] npolyb         The number of vertices in polygon B.
 /// @see True if the two polygons overlap.
 pub const dtOverlapPolyPoly2D = _1_dtOverlapPolyPoly2D_;
 

@@ -1,24 +1,23 @@
 const std = @import("std");
-const Build = @import("std").Build;
 
-pub fn build(b: *Build) void {
-    var target = b.standardTargetOptions(.{});
+pub fn build(b: *std.Build) void {
+    const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    // For some reason, "#include <new>"" in the binding glue only works with msvc.
-    target.query.abi = .msvc;
-
-    const zignav_c_cpp = b.addStaticLibrary(.{
-        .name = "zignav_c_cpp",
+    // Create the C/C++ module for the recastnavigation library
+    const c_module = b.createModule(.{
         .target = target,
         .optimize = optimize,
+        .link_libc = true,
+        .link_libcpp = true,
     });
-    zignav_c_cpp.linkLibC();
-    zignav_c_cpp.addIncludePath(b.path("Recast/Include"));
-    zignav_c_cpp.addIncludePath(b.path("Detour/Include"));
-    zignav_c_cpp.addIncludePath(b.path("DetourTileCache/Include"));
-    zignav_c_cpp.addIncludePath(b.path("DetourCrowd/Include"));
-    zignav_c_cpp.addCSourceFiles(.{
+
+    c_module.addIncludePath(b.path("Recast/Include"));
+    c_module.addIncludePath(b.path("Detour/Include"));
+    c_module.addIncludePath(b.path("DetourTileCache/Include"));
+    c_module.addIncludePath(b.path("DetourCrowd/Include"));
+
+    c_module.addCSourceFiles(.{
         .files = &.{
             // Recast
             "Recast/Include/Recast_glue.cpp",
@@ -61,9 +60,17 @@ pub fn build(b: *Build) void {
         .flags = &.{},
     });
 
+    // Create the static library from the C module
+    const zignav_c_cpp = b.addLibrary(.{
+        .name = "zignav_c_cpp",
+        .root_module = c_module,
+        .linkage = .static,
+    });
+
     b.installArtifact(zignav_c_cpp);
 
-    var zignav = b.addModule("zignav", .{
+    // Create the Zig module that wraps the C library
+    const zignav = b.addModule("zignav", .{
         .root_source_file = b.path("main.zig"),
         .target = target,
         .optimize = optimize,

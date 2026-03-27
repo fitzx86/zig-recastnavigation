@@ -25,32 +25,32 @@ pub const dtPathCorridor = extern struct {
 
     extern fn _2_dtPathCorridor_init_(self: *dtPathCorridor, maxPath: c_int) bool;
     /// Allocates the corridor's path buffer.
-    ///  @param[in] maxPath 		The maximum path size the corridor can handle.
+    ///  @param[in] maxPath         The maximum path size the corridor can handle.
     /// @see True if the initialization succeeded.
     pub const init__Overload2 = _2_dtPathCorridor_init_;
 
     extern fn _1_dtPathCorridor_reset_(self: *dtPathCorridor, ref: dtPolyRef, pos: [*c]const f32) void;
     /// Resets the path corridor to the specified position.
-    ///  @param[in] ref 		The polygon reference containing the position.
-    ///  @param[in] pos 		The new position in the corridor. [(x, y, z)]
+    ///  @param[in] ref         The polygon reference containing the position.
+    ///  @param[in] pos         The new position in the corridor. [(x, y, z)]
     pub const reset = _1_dtPathCorridor_reset_;
 
     extern fn _1_dtPathCorridor_findCorners_(self: *dtPathCorridor, cornerVerts: [*c]f32, cornerFlags: [*c]u8, cornerPolys: [*c]dtPolyRef, maxCorners: c_int, navquery: [*c]dtNavMeshQuery, filter: [*c]const dtQueryFilter) c_int;
     /// Finds the corners in the corridor from the position toward the target. (The straightened path.)
-    ///  @param[out] cornerVerts 		The corner vertices. [(x, y, z) * cornerCount] [Size:
+    ///  @param[out] cornerVerts         The corner vertices. [(x, y, z) * cornerCount] [Size:
     ///<
     ///= maxCorners]
-    ///  @param[out] cornerFlags 		The flag for each corner. [(flag) * cornerCount] [Size:
+    ///  @param[out] cornerFlags         The flag for each corner. [(flag) * cornerCount] [Size:
     ///<
     ///= maxCorners]
-    ///  @param[out] cornerPolys 		The polygon reference for each corner. [(polyRef) * cornerCount]
-    ///  								[Size:
+    ///  @param[out] cornerPolys         The polygon reference for each corner. [(polyRef) * cornerCount]
+    ///                                  [Size:
     ///<
     ///=
     ///@p
-    ///  @param[in] maxCorners 		The maximum number of corners the buffers can hold.
-    ///  @param[in] navquery 		The query object used to build the corridor.
-    ///  @param[in] filter 			The filter to apply to the operation.
+    ///  @param[in] maxCorners         The maximum number of corners the buffers can hold.
+    ///  @param[in] navquery         The query object used to build the corridor.
+    ///  @param[in] filter             The filter to apply to the operation.
     /// @see The number of corners returned in the corner buffers. [0
     ///<
     ///= value
@@ -61,16 +61,16 @@ pub const dtPathCorridor = extern struct {
 
     extern fn _1_dtPathCorridor_optimizePathVisibility_(self: *dtPathCorridor, next: [*c]const f32, pathOptimizationRange: f32, navquery: [*c]dtNavMeshQuery, filter: [*c]const dtQueryFilter) void;
     /// Attempts to optimize the path if the specified point is visible from the current position.
-    ///  @param[in] next 					The point to search toward. [(x, y, z])
-    ///  @param[in] pathOptimizationRange 	The maximum range to search. [Limit: > 0]
-    ///  @param[in] navquery 				The query object used to build the corridor.
-    ///  @param[in] filter 					The filter to apply to the operation.
+    ///  @param[in] next                     The point to search toward. [(x, y, z])
+    ///  @param[in] pathOptimizationRange     The maximum range to search. [Limit: > 0]
+    ///  @param[in] navquery                 The query object used to build the corridor.
+    ///  @param[in] filter                     The filter to apply to the operation.
     pub const optimizePathVisibility = _1_dtPathCorridor_optimizePathVisibility_;
 
     extern fn _1_dtPathCorridor_optimizePathTopology_(self: *dtPathCorridor, navquery: [*c]dtNavMeshQuery, filter: [*c]const dtQueryFilter) bool;
     /// Attempts to optimize the path using a local area search. (Partial replanning.)
-    ///  @param[in] navquery 	The query object used to build the corridor.
-    ///  @param[in] filter 		The filter to apply to the operation.
+    ///  @param[in] navquery     The query object used to build the corridor.
+    ///  @param[in] filter         The filter to apply to the operation.
     pub const optimizePathTopology = _1_dtPathCorridor_optimizePathTopology_;
 
     extern fn _1_dtPathCorridor_moveOverOffmeshConnection_(self: *dtPathCorridor, offMeshConRef: dtPolyRef, refs: [*c]dtPolyRef, startPos: [*c]f32, endPos: [*c]f32, navquery: [*c]dtNavMeshQuery) bool;
@@ -84,35 +84,35 @@ pub const dtPathCorridor = extern struct {
 
     extern fn _1_dtPathCorridor_isValid_(self: *dtPathCorridor, maxLookAhead: c_int, navquery: [*c]dtNavMeshQuery, filter: [*c]const dtQueryFilter) bool;
     /// Checks the current corridor path to see if its polygon references remain valid.
-    ///  @param[in] maxLookAhead 	The number of polygons from the beginning of the corridor to search.
-    ///  @param[in] navquery 		The query object used to build the corridor.
-    ///  @param[in] filter 			The filter to apply to the operation.
+    ///  @param[in] maxLookAhead     The number of polygons from the beginning of the corridor to search.
+    ///  @param[in] navquery         The query object used to build the corridor.
+    ///  @param[in] filter             The filter to apply to the operation.
     pub const isValid = _1_dtPathCorridor_isValid_;
 
     extern fn _1_dtPathCorridor_movePosition_(self: *dtPathCorridor, npos: [*c]const f32, navquery: [*c]dtNavMeshQuery, filter: [*c]const dtQueryFilter) bool;
     /// Moves the position from the current location to the desired location, adjusting the corridor
     /// as needed to reflect the change.
-    ///  @param[in] npos 		The desired new position. [(x, y, z)]
-    ///  @param[in] navquery 	The query object used to build the corridor.
-    ///  @param[in] filter 		The filter to apply to the operation.
+    ///  @param[in] npos         The desired new position. [(x, y, z)]
+    ///  @param[in] navquery     The query object used to build the corridor.
+    ///  @param[in] filter         The filter to apply to the operation.
     /// @see Returns true if move succeeded.
     pub const movePosition = _1_dtPathCorridor_movePosition_;
 
     extern fn _1_dtPathCorridor_moveTargetPosition_(self: *dtPathCorridor, npos: [*c]const f32, navquery: [*c]dtNavMeshQuery, filter: [*c]const dtQueryFilter) bool;
     /// Moves the target from the curent location to the desired location, adjusting the corridor
     /// as needed to reflect the change.
-    ///  @param[in] npos 		The desired new target position. [(x, y, z)]
-    ///  @param[in] navquery 	The query object used to build the corridor.
-    ///  @param[in] filter 		The filter to apply to the operation.
+    ///  @param[in] npos         The desired new target position. [(x, y, z)]
+    ///  @param[in] navquery     The query object used to build the corridor.
+    ///  @param[in] filter         The filter to apply to the operation.
     /// @see Returns true if move succeeded.
     pub const moveTargetPosition = _1_dtPathCorridor_moveTargetPosition_;
 
     extern fn _1_dtPathCorridor_setCorridor_(self: *dtPathCorridor, target: [*c]const f32, polys: [*c]const dtPolyRef, npath: c_int) void;
     /// Loads a new path and target into the corridor.
-    ///  @param[in] target 		The target location within the last polygon of the path. [(x, y, z)]
-    ///  @param[in] path 		The path corridor. [(polyRef) *
+    ///  @param[in] target         The target location within the last polygon of the path. [(x, y, z)]
+    ///  @param[in] path         The path corridor. [(polyRef) *
     ///@p
-    ///  @param[in] npath 		The number of polygons in the path.
+    ///  @param[in] npath         The number of polygons in the path.
     pub const setCorridor = _1_dtPathCorridor_setCorridor_;
 
     extern fn _1_dtPathCorridor_getPos_(self: *const dtPathCorridor) [*c]const f32;

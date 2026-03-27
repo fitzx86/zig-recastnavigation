@@ -1,0 +1,13 @@
+0
+1224 9968453 1774631277284006469 a18d68ce707ab86abc9d9fe245856b47 0 /home/fitzy/fun/zig-recastnavigation/Recast/Source/RecastAssert.cpp
+2153 9968445 1774631277283006471 dd5f322e3acf61831f49b1c32e52af25 0 /home/fitzy/fun/zig-recastnavigation/Recast/Include/RecastAssert.h
+5026 25567763 1000000000 e567e2645cd1234a741e19c159d1fc97 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/assert.h
+19283 25568417 1000000000 9606a1de69bba18f75a886b3901827f5 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/features.h
+1532 25568416 1000000000 a07668ce64dd05f4c58d239bd85a2bcb 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/features-time64.h
+398 25568367 1000000000 d747ec9a0fdba458d49068b678b29de6 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/bits/wordsize.h
+1109 25568206 1000000000 7b5c19e5e5f31de2717c174e07470ff1 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/bits/timesize.h
+2462 25568573 1000000000 0a19c4e9f90565325f11b80216decb81 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/stdc-predef.h
+34638 25568593 1000000000 a864906bf35c1d9d271b3b1a7df324d8 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/sys/cdefs.h
+970 25567867 1000000000 d2875bbfdef59b98ab55231881f04395 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/bits/long-double.h
+384 25568436 1000000000 bbd76beb33f6f3d22f67335a8823e269 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/gnu/stubs.h
+481 25568435 1000000000 13e633d41f2bea1a7912ab01537b2ba8 0 /nix/store/rwalsamz4246k8f1zzxa54qx7w3fbzdg-glibc-2.42-47-dev/include/gnu/stubs-64.h

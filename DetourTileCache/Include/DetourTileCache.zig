@@ -233,11 +233,11 @@ pub const dtTileCache = extern struct {
 
     extern fn _1_dtTileCache_update_(self: *dtTileCache, dt: f32, navmesh: [*c]dtNavMesh, upToDate: [*c]bool) dtStatus;
     /// Updates the tile cache by rebuilding tiles touched by unfinished obstacle requests.
-    ///  @param[in] dt 			The time step size. Currently not used.
-    ///  @param[in] navmesh 		The mesh to affect when rebuilding tiles.
-    ///  @param[out] upToDate 	Whether the tile cache is fully up to date with obstacle requests and tile rebuilds.
-    ///  							If the tile cache is up to date another (immediate) call to update will have no effect;
-    ///  							otherwise another call will continue processing obstacle requests and tile rebuilds.
+    ///  @param[in] dt             The time step size. Currently not used.
+    ///  @param[in] navmesh         The mesh to affect when rebuilding tiles.
+    ///  @param[out] upToDate     Whether the tile cache is fully up to date with obstacle requests and tile rebuilds.
+    ///                              If the tile cache is up to date another (immediate) call to update will have no effect;
+    ///                              otherwise another call will continue processing obstacle requests and tile rebuilds.
     pub fn update(
         self: *dtTileCache,
         dt: f32,

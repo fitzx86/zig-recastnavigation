@@ -300,9 +300,9 @@ pub const dtMeshTile = extern struct {
 
 extern fn _1_dtGetDetailTriEdgeFlags_(triFlags: u8, edgeIndex: c_int) c_int;
 /// Get flags for edge in detail triangle.
-/// @param[in] triFlags 		The flags for the triangle (last component of detail vertices above).
-/// @param[in] edgeIndex 		The index of the first vertex of the edge. For instance, if 0,
-///								returns flags for edge AB.
+/// @param[in] triFlags         The flags for the triangle (last component of detail vertices above).
+/// @param[in] edgeIndex         The index of the first vertex of the edge. For instance, if 0,
+///                                returns flags for edge AB.
 pub const dtGetDetailTriEdgeFlags = _1_dtGetDetailTriEdgeFlags_;
 
 /// Configuration parameters used to define multi-tile navigation meshes.
@@ -360,15 +360,15 @@ pub const dtNavMesh = extern struct {
 
     extern fn _2_dtNavMesh_init_(self: *dtNavMesh, params: [*c]const dtNavMeshParams) dtStatus;
     /// Initializes the navigation mesh for tiled use.
-    ///  @param[in] params 		Initialization parameters.
+    ///  @param[in] params         Initialization parameters.
     /// @see The status flags for the operation.
     pub const init__Overload2 = _2_dtNavMesh_init_;
 
     extern fn _3_dtNavMesh_init_(self: *dtNavMesh, data: [*c]u8, dataSize: c_int, flags: c_int) dtStatus;
     /// Initializes the navigation mesh for single tile use.
-    ///  @param[in] data 		Data of the new tile. (See: #dtCreateNavMeshData)
-    ///  @param[in] dataSize 	The data size of the new tile.
-    ///  @param[in] flags 		The tile flags. (See: #dtTileFlags)
+    ///  @param[in] data         Data of the new tile. (See: #dtCreateNavMeshData)
+    ///  @param[in] dataSize     The data size of the new tile.
+    ///  @param[in] flags         The tile flags. (See: #dtTileFlags)
     /// @see The status flags for the operation.
     ///  @see dtCreateNavMeshData
     pub const init__Overload3 = _3_dtNavMesh_init_;
@@ -379,65 +379,65 @@ pub const dtNavMesh = extern struct {
 
     extern fn _1_dtNavMesh_addTile_(self: *dtNavMesh, data: [*c]u8, dataSize: c_int, flags: c_int, lastRef: dtTileRef, result: [*c]dtTileRef) dtStatus;
     /// Adds a tile to the navigation mesh.
-    ///  @param[in] data 		Data for the new tile mesh. (See: #dtCreateNavMeshData)
-    ///  @param[in] dataSize 	Data size of the new tile mesh.
-    ///  @param[in] flags 		Tile flags. (See: #dtTileFlags)
-    ///  @param[in] lastRef 		The desired reference for the tile. (When reloading a tile.) [opt] [Default: 0]
-    ///  @param[out] result 		The tile reference. (If the tile was succesfully added.) [opt]
+    ///  @param[in] data         Data for the new tile mesh. (See: #dtCreateNavMeshData)
+    ///  @param[in] dataSize     Data size of the new tile mesh.
+    ///  @param[in] flags         Tile flags. (See: #dtTileFlags)
+    ///  @param[in] lastRef         The desired reference for the tile. (When reloading a tile.) [opt] [Default: 0]
+    ///  @param[out] result         The tile reference. (If the tile was succesfully added.) [opt]
     /// @see The status flags for the operation.
     pub const addTile = _1_dtNavMesh_addTile_;
 
     extern fn _1_dtNavMesh_removeTile_(self: *dtNavMesh, ref: dtTileRef, data: [*c][*c]u8, dataSize: [*c]c_int) dtStatus;
     /// Removes the specified tile from the navigation mesh.
-    ///  @param[in] ref 			The reference of the tile to remove.
-    ///  @param[out] data 		Data associated with deleted tile.
-    ///  @param[out] dataSize 	Size of the data associated with deleted tile.
+    ///  @param[in] ref             The reference of the tile to remove.
+    ///  @param[out] data         Data associated with deleted tile.
+    ///  @param[out] dataSize     Size of the data associated with deleted tile.
     /// @see The status flags for the operation.
     pub const removeTile = _1_dtNavMesh_removeTile_;
 
     extern fn _1_dtNavMesh_calcTileLoc_(self: *const dtNavMesh, pos: [*c]const f32, tx: [*c]c_int, ty: [*c]c_int) void;
     /// Calculates the tile grid location for the specified world position.
     ///  @param[in] pos   The world position for the query. [(x, y, z)]
-    ///  @param[out] tx 		The tile's x-location. (x, y)
-    ///  @param[out] ty 		The tile's y-location. (x, y)
+    ///  @param[out] tx         The tile's x-location. (x, y)
+    ///  @param[out] ty         The tile's y-location. (x, y)
     pub const calcTileLoc = _1_dtNavMesh_calcTileLoc_;
 
     extern fn _1_dtNavMesh_getTileAt_(self: *const dtNavMesh, x: c_int, y: c_int, layer: c_int) [*c]const dtMeshTile;
     /// Gets the tile at the specified grid location.
-    ///  @param[in] x 		The tile's x-location. (x, y, layer)
-    ///  @param[in] y 		The tile's y-location. (x, y, layer)
-    ///  @param[in] layer 	The tile's layer. (x, y, layer)
+    ///  @param[in] x         The tile's x-location. (x, y, layer)
+    ///  @param[in] y         The tile's y-location. (x, y, layer)
+    ///  @param[in] layer     The tile's layer. (x, y, layer)
     /// @see The tile, or null if the tile does not exist.
     pub const getTileAt = _1_dtNavMesh_getTileAt_;
 
     extern fn _1_dtNavMesh_getTilesAt_(self: *const dtNavMesh, x: c_int, y: c_int, tiles: [*c]const [*c]dtMeshTile, maxTiles: c_int) c_int;
     /// Gets all tiles at the specified grid location. (All layers.)
-    ///  @param[in] x 			The tile's x-location. (x, y)
-    ///  @param[in] y 			The tile's y-location. (x, y)
-    ///  @param[out] tiles 		A pointer to an array of tiles that will hold the result.
-    ///  @param[in] maxTiles 	The maximum tiles the tiles parameter can hold.
+    ///  @param[in] x             The tile's x-location. (x, y)
+    ///  @param[in] y             The tile's y-location. (x, y)
+    ///  @param[out] tiles         A pointer to an array of tiles that will hold the result.
+    ///  @param[in] maxTiles     The maximum tiles the tiles parameter can hold.
     /// @see The number of tiles returned in the tiles array.
     pub const getTilesAt = _1_dtNavMesh_getTilesAt_;
 
     extern fn _1_dtNavMesh_getTileRefAt_(self: *const dtNavMesh, x: c_int, y: c_int, layer: c_int) dtTileRef;
     /// Gets the tile reference for the tile at specified grid location.
-    ///  @param[in] x 		The tile's x-location. (x, y, layer)
-    ///  @param[in] y 		The tile's y-location. (x, y, layer)
-    ///  @param[in] layer 	The tile's layer. (x, y, layer)
+    ///  @param[in] x         The tile's x-location. (x, y, layer)
+    ///  @param[in] y         The tile's y-location. (x, y, layer)
+    ///  @param[in] layer     The tile's layer. (x, y, layer)
     /// @see The tile reference of the tile, or 0 if there is none.
     pub const getTileRefAt = _1_dtNavMesh_getTileRefAt_;
 
     extern fn _1_dtNavMesh_getTileRef_(self: *const dtNavMesh, tile: [*c]const dtMeshTile) dtTileRef;
     /// Gets the tile reference for the specified tile.
-    ///  @param[in] tile 	The tile.
+    ///  @param[in] tile     The tile.
     /// @see The tile reference of the tile.
     pub const getTileRef = _1_dtNavMesh_getTileRef_;
 
     extern fn _1_dtNavMesh_getTileByRef_(self: *const dtNavMesh, ref: dtTileRef) [*c]const dtMeshTile;
     /// Gets the tile for the specified tile reference.
-    ///  @param[in] ref 		The tile reference of the tile to retrieve.
+    ///  @param[in] ref         The tile reference of the tile to retrieve.
     /// @see The tile for the specified reference, or null if the
-    ///		reference is invalid.
+    ///        reference is invalid.
     pub const getTileByRef = _1_dtNavMesh_getTileByRef_;
 
     extern fn _1_dtNavMesh_getMaxTiles_(self: *const dtNavMesh) c_int;
@@ -447,7 +447,7 @@ pub const dtNavMesh = extern struct {
 
     extern fn _1_dtNavMesh_getTile_(self: *const dtNavMesh, i: c_int) [*c]const dtMeshTile;
     /// Gets the tile at the specified index.
-    ///  @param[in] i 		The tile index. [Limit: 0 >= index
+    ///  @param[in] i         The tile index. [Limit: 0 >= index
     ///<
     /// #getMaxTiles()]
     /// @see The tile at the specified index.
@@ -455,64 +455,64 @@ pub const dtNavMesh = extern struct {
 
     extern fn _1_dtNavMesh_getTileAndPolyByRef_(self: *const dtNavMesh, ref: dtPolyRef, tile: [*c]const [*c]dtMeshTile, poly: [*c]const [*c]dtPoly) dtStatus;
     /// Gets the tile and polygon for the specified polygon reference.
-    ///  @param[in] ref 		The reference for the a polygon.
-    ///  @param[out] tile 	The tile containing the polygon.
-    ///  @param[out] poly 	The polygon.
+    ///  @param[in] ref         The reference for the a polygon.
+    ///  @param[out] tile     The tile containing the polygon.
+    ///  @param[out] poly     The polygon.
     /// @see The status flags for the operation.
     pub const getTileAndPolyByRef = _1_dtNavMesh_getTileAndPolyByRef_;
 
     extern fn _1_dtNavMesh_getTileAndPolyByRefUnsafe_(self: *const dtNavMesh, ref: dtPolyRef, tile: [*c]const [*c]dtMeshTile, poly: [*c]const [*c]dtPoly) void;
     /// Returns the tile and polygon for the specified polygon reference.
-    ///  @param[in] ref 		A known valid reference for a polygon.
-    ///  @param[out] tile 	The tile containing the polygon.
-    ///  @param[out] poly 	The polygon.
+    ///  @param[in] ref         A known valid reference for a polygon.
+    ///  @param[out] tile     The tile containing the polygon.
+    ///  @param[out] poly     The polygon.
     pub const getTileAndPolyByRefUnsafe = _1_dtNavMesh_getTileAndPolyByRefUnsafe_;
 
     extern fn _1_dtNavMesh_isValidPolyRef_(self: *const dtNavMesh, ref: dtPolyRef) bool;
     /// Checks the validity of a polygon reference.
-    ///  @param[in] ref 		The polygon reference to check.
+    ///  @param[in] ref         The polygon reference to check.
     /// @see True if polygon reference is valid for the navigation mesh.
     pub const isValidPolyRef = _1_dtNavMesh_isValidPolyRef_;
 
     extern fn _1_dtNavMesh_getPolyRefBase_(self: *const dtNavMesh, tile: [*c]const dtMeshTile) dtPolyRef;
     /// Gets the polygon reference for the tile's base polygon.
-    ///  @param[in] tile 		The tile.
+    ///  @param[in] tile         The tile.
     /// @see The polygon reference for the base polygon in the specified tile.
     pub const getPolyRefBase = _1_dtNavMesh_getPolyRefBase_;
 
     extern fn _1_dtNavMesh_getOffMeshConnectionPolyEndPoints_(self: *const dtNavMesh, prevRef: dtPolyRef, polyRef: dtPolyRef, startPos: [*c]f32, endPos: [*c]f32) dtStatus;
     /// Gets the endpoints for an off-mesh connection, ordered by "direction of travel".
-    ///  @param[in] prevRef 		The reference of the polygon before the connection.
-    ///  @param[in] polyRef 		The reference of the off-mesh connection polygon.
-    ///  @param[out] startPos 	The start position of the off-mesh connection. [(x, y, z)]
-    ///  @param[out] endPos 		The end position of the off-mesh connection. [(x, y, z)]
+    ///  @param[in] prevRef         The reference of the polygon before the connection.
+    ///  @param[in] polyRef         The reference of the off-mesh connection polygon.
+    ///  @param[out] startPos     The start position of the off-mesh connection. [(x, y, z)]
+    ///  @param[out] endPos         The end position of the off-mesh connection. [(x, y, z)]
     /// @see The status flags for the operation.
     pub const getOffMeshConnectionPolyEndPoints = _1_dtNavMesh_getOffMeshConnectionPolyEndPoints_;
 
     extern fn _1_dtNavMesh_getOffMeshConnectionByRef_(self: *const dtNavMesh, ref: dtPolyRef) [*c]const dtOffMeshConnection;
     /// Gets the specified off-mesh connection.
-    ///  @param[in] ref 		The polygon reference of the off-mesh connection.
+    ///  @param[in] ref         The polygon reference of the off-mesh connection.
     /// @see The specified off-mesh connection, or null if the polygon reference is not valid.
     pub const getOffMeshConnectionByRef = _1_dtNavMesh_getOffMeshConnectionByRef_;
 
     extern fn _1_dtNavMesh_setPolyFlags_(self: *dtNavMesh, ref: dtPolyRef, flags: c_ushort) dtStatus;
     /// Sets the user defined flags for the specified polygon.
-    ///  @param[in] ref 		The polygon reference.
-    ///  @param[in] flags 	The new flags for the polygon.
+    ///  @param[in] ref         The polygon reference.
+    ///  @param[in] flags     The new flags for the polygon.
     /// @see The status flags for the operation.
     pub const setPolyFlags = _1_dtNavMesh_setPolyFlags_;
 
     extern fn _1_dtNavMesh_getPolyFlags_(self: *const dtNavMesh, ref: dtPolyRef, resultFlags: [*c]c_ushort) dtStatus;
     /// Gets the user defined flags for the specified polygon.
-    ///  @param[in] ref 				The polygon reference.
-    ///  @param[out] resultFlags 		The polygon flags.
+    ///  @param[in] ref                 The polygon reference.
+    ///  @param[out] resultFlags         The polygon flags.
     /// @see The status flags for the operation.
     pub const getPolyFlags = _1_dtNavMesh_getPolyFlags_;
 
     extern fn _1_dtNavMesh_setPolyArea_(self: *dtNavMesh, ref: dtPolyRef, area: u8) dtStatus;
     /// Sets the user defined area for the specified polygon.
-    ///  @param[in] ref 		The polygon reference.
-    ///  @param[in] area 	The new area id for the polygon. [Limit:
+    ///  @param[in] ref         The polygon reference.
+    ///  @param[in] area     The new area id for the polygon. [Limit:
     ///<
     /// #DT_MAX_AREAS]
     /// @see The status flags for the operation.
@@ -520,69 +520,69 @@ pub const dtNavMesh = extern struct {
 
     extern fn _1_dtNavMesh_getPolyArea_(self: *const dtNavMesh, ref: dtPolyRef, resultArea: [*c]u8) dtStatus;
     /// Gets the user defined area for the specified polygon.
-    ///  @param[in] ref 			The polygon reference.
-    ///  @param[out] resultArea 	The area id for the polygon.
+    ///  @param[in] ref             The polygon reference.
+    ///  @param[out] resultArea     The area id for the polygon.
     /// @see The status flags for the operation.
     pub const getPolyArea = _1_dtNavMesh_getPolyArea_;
 
     extern fn _1_dtNavMesh_getTileStateSize_(self: *const dtNavMesh, tile: [*c]const dtMeshTile) c_int;
     /// Gets the size of the buffer required by #storeTileState to store the specified tile's state.
-    ///  @param[in] tile 	The tile.
+    ///  @param[in] tile     The tile.
     /// @see The size of the buffer required to store the state.
     pub const getTileStateSize = _1_dtNavMesh_getTileStateSize_;
 
     extern fn _1_dtNavMesh_storeTileState_(self: *const dtNavMesh, tile: [*c]const dtMeshTile, data: [*c]u8, maxDataSize: c_int) dtStatus;
     /// Stores the non-structural state of the tile in the specified buffer. (Flags, area ids, etc.)
-    ///  @param[in] tile 			The tile.
-    ///  @param[out] data 			The buffer to store the tile's state in.
-    ///  @param[in] maxDataSize 		The size of the data buffer. [Limit: >= #getTileStateSize]
+    ///  @param[in] tile             The tile.
+    ///  @param[out] data             The buffer to store the tile's state in.
+    ///  @param[in] maxDataSize         The size of the data buffer. [Limit: >= #getTileStateSize]
     /// @see The status flags for the operation.
     pub const storeTileState = _1_dtNavMesh_storeTileState_;
 
     extern fn _1_dtNavMesh_restoreTileState_(self: *dtNavMesh, tile: [*c]dtMeshTile, data: [*c]const u8, maxDataSize: c_int) dtStatus;
     /// Restores the state of the tile.
-    ///  @param[in] tile 			The tile.
-    ///  @param[in] data 			The new state. (Obtained from #storeTileState.)
-    ///  @param[in] maxDataSize 		The size of the state within the data buffer.
+    ///  @param[in] tile             The tile.
+    ///  @param[in] data             The new state. (Obtained from #storeTileState.)
+    ///  @param[in] maxDataSize         The size of the state within the data buffer.
     /// @see The status flags for the operation.
     pub const restoreTileState = _1_dtNavMesh_restoreTileState_;
 
     extern fn _1_dtNavMesh_encodePolyId_(self: *const dtNavMesh, salt: c_uint, it: c_uint, ip: c_uint) dtPolyRef;
     /// Derives a standard polygon reference.
     ///  @see This function is generally meant for internal use only.
-    ///  @param[in] salt 	The tile's salt value.
-    ///  @param[in] it 		The index of the tile.
-    ///  @param[in] ip 		The index of the polygon within the tile.
+    ///  @param[in] salt     The tile's salt value.
+    ///  @param[in] it         The index of the tile.
+    ///  @param[in] ip         The index of the polygon within the tile.
     pub const encodePolyId = _1_dtNavMesh_encodePolyId_;
 
     extern fn _1_dtNavMesh_decodePolyId_(self: *const dtNavMesh, ref: dtPolyRef, salt: *c_uint, it: *c_uint, ip: *c_uint) void;
     /// Decodes a standard polygon reference.
     ///  @see This function is generally meant for internal use only.
     ///  @param[in] ref    The polygon reference to decode.
-    ///  @param[out] salt 	The tile's salt value.
-    ///  @param[out] it 		The index of the tile.
-    ///  @param[out] ip 		The index of the polygon within the tile.
+    ///  @param[out] salt     The tile's salt value.
+    ///  @param[out] it         The index of the tile.
+    ///  @param[out] ip         The index of the polygon within the tile.
     ///  @see #encodePolyId
     pub const decodePolyId = _1_dtNavMesh_decodePolyId_;
 
     extern fn _1_dtNavMesh_decodePolyIdSalt_(self: *const dtNavMesh, ref: dtPolyRef) c_uint;
     /// Extracts a tile's salt value from the specified polygon reference.
     ///  @see This function is generally meant for internal use only.
-    ///  @param[in] ref 		The polygon reference.
+    ///  @param[in] ref         The polygon reference.
     ///  @see #encodePolyId
     pub const decodePolyIdSalt = _1_dtNavMesh_decodePolyIdSalt_;
 
     extern fn _1_dtNavMesh_decodePolyIdTile_(self: *const dtNavMesh, ref: dtPolyRef) c_uint;
     /// Extracts the tile's index from the specified polygon reference.
     ///  @see This function is generally meant for internal use only.
-    ///  @param[in] ref 		The polygon reference.
+    ///  @param[in] ref         The polygon reference.
     ///  @see #encodePolyId
     pub const decodePolyIdTile = _1_dtNavMesh_decodePolyIdTile_;
 
     extern fn _1_dtNavMesh_decodePolyIdPoly_(self: *const dtNavMesh, ref: dtPolyRef) c_uint;
     /// Extracts the polygon's index (within its tile) from the specified polygon reference.
     ///  @see This function is generally meant for internal use only.
-    ///  @param[in] ref 		The polygon reference.
+    ///  @param[in] ref         The polygon reference.
     ///  @see #encodePolyId
     pub const decodePolyIdPoly = _1_dtNavMesh_decodePolyIdPoly_;
 };
@@ -595,6 +595,6 @@ pub const dtAllocNavMesh = _1_dtAllocNavMesh_;
 
 extern fn _1_dtFreeNavMesh_(navmesh: [*c]dtNavMesh) void;
 /// Frees the specified navigation mesh object using the Detour allocator.
-///  @param[in] navmesh 		A navigation mesh allocated using #dtAllocNavMesh
+///  @param[in] navmesh         A navigation mesh allocated using #dtAllocNavMesh
 ///  @UntranspiledVerbatimLineCommentCommand detour
 pub const dtFreeNavMesh = _1_dtFreeNavMesh_;

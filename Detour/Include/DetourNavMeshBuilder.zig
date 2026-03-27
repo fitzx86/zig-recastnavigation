@@ -78,20 +78,20 @@ extern fn _1_dtCreateNavMeshData_(params: [*c]dtNavMeshCreateParams, outData: [*
 /// Builds navigation mesh tile data from the provided tile creation data.
 /// @UntranspiledVerbatimLineCommentCommand detour
 ///
-///  @param[in] params 		Tile creation data.
-///  @param[out] outData 		The resulting tile data.
-///  @param[out] outDataSize 	The size of the tile data array.
+///  @param[in] params         Tile creation data.
+///  @param[out] outData         The resulting tile data.
+///  @param[out] outDataSize     The size of the tile data array.
 /// @see True if the tile data was successfully created.
 pub const dtCreateNavMeshData = _1_dtCreateNavMeshData_;
 
 extern fn _1_dtNavMeshHeaderSwapEndian_(data: [*c]u8, dataSize: c_int) bool;
 /// Swaps the endianess of the tile data's header (#dtMeshHeader).
-///  @param[in,out] data 		The tile data array.
-///  @param[in] dataSize 	The size of the data array.
+///  @param[in,out] data         The tile data array.
+///  @param[in] dataSize     The size of the data array.
 pub const dtNavMeshHeaderSwapEndian = _1_dtNavMeshHeaderSwapEndian_;
 
 extern fn _1_dtNavMeshDataSwapEndian_(data: [*c]u8, dataSize: c_int) bool;
 /// Swaps endianess of the tile data.
-///  @param[in,out] data 		The tile data array.
-///  @param[in] dataSize 	The size of the data array.
+///  @param[in,out] data         The tile data array.
+///  @param[in] dataSize     The size of the data array.
 pub const dtNavMeshDataSwapEndian = _1_dtNavMeshDataSwapEndian_;

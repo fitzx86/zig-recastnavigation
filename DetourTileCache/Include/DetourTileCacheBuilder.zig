@@ -127,8 +127,8 @@ pub const dtFreeTileCachePolyMesh = _1_dtFreeTileCachePolyMesh_;
 extern fn _1_dtTileCacheHeaderSwapEndian_(data: [*c]u8, dataSize: c_int) bool;
 /// Swaps the endianess of the compressed tile data's header (#dtTileCacheLayerHeader).
 /// Tile layer data does not need endian swapping as it consist only of bytes.
-///  @param[in,out] data 		The tile data array.
-///  @param[in] dataSize 	The size of the data array.
+///  @param[in,out] data         The tile data array.
+///  @param[in] dataSize     The size of the data array.
 pub const dtTileCacheHeaderSwapEndian = _1_dtTileCacheHeaderSwapEndian_;
 
 pub extern fn getCopyCompressor() [*c]dtTileCacheCompressor;

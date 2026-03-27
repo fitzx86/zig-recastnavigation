@@ -16,21 +16,21 @@ pub const rcAllocHint = extern struct {
 };
 
 /// A memory allocation function.
-///  @param[in] size 			The size, in bytes of memory, to allocate.
-///  @param[in] rcAllocHint 	A hint to the allocator on how long the memory is expected to be in use.
+///  @param[in] size             The size, in bytes of memory, to allocate.
+///  @param[in] rcAllocHint     A hint to the allocator on how long the memory is expected to be in use.
 ///  @see A pointer to the beginning of the allocated memory block, or null if the allocation failed.
 ///  @see rcAllocSetCustom
 pub const rcAllocFunc = fn (usize, rcAllocHint) callconv(.C) ?*anyopaque;
 
 /// A memory deallocation function.
-///  @param[in] ptr 		A pointer to a memory block previously allocated using #rcAllocFunc.
+///  @param[in] ptr         A pointer to a memory block previously allocated using #rcAllocFunc.
 /// @see rcAllocSetCustom
 pub const rcFreeFunc = fn (?*anyopaque) callconv(.C) void;
 
 extern fn _1_rcAllocSetCustom_(allocFunc: [*c]rcAllocFunc, freeFunc: [*c]rcFreeFunc) void;
 /// Sets the base custom allocation functions to be used by Recast.
-///  @param[in] allocFunc 	The memory allocation function to be used by #rcAlloc
-///  @param[in] freeFunc 	The memory de-allocation function to be used by #rcFree
+///  @param[in] allocFunc     The memory allocation function to be used by #rcAlloc
+///  @param[in] freeFunc     The memory de-allocation function to be used by #rcFree
 ///
 /// @see rcAlloc, rcFree
 pub const rcAllocSetCustom = _1_rcAllocSetCustom_;
@@ -38,8 +38,8 @@ pub const rcAllocSetCustom = _1_rcAllocSetCustom_;
 extern fn _1_rcAlloc_(size: usize, hint: rcAllocHint) ?*anyopaque;
 /// Allocates a memory block.
 ///
-/// @param[in] size 	The size, in bytes of memory, to allocate.
-/// @param[in] hint 	A hint to the allocator on how long the memory is expected to be in use.
+/// @param[in] size     The size, in bytes of memory, to allocate.
+/// @param[in] hint     A hint to the allocator on how long the memory is expected to be in use.
 /// @see A pointer to the beginning of the allocated memory block, or null if the allocation failed.
 ///
 /// @see rcFree, rcAllocSetCustom
@@ -55,7 +55,7 @@ extern fn _1_rcFree_(ptr: ?*anyopaque) void;
 /// unchanged.  So it still
 /// points to the same (now invalid) location, and not to null.
 ///
-/// @param[in] ptr 		A pointer to a memory block previously allocated using #rcAlloc.
+/// @param[in] ptr         A pointer to a memory block previously allocated using #rcAlloc.
 ///
 /// @see rcAlloc, rcAllocSetCustom
 pub const rcFree = _1_rcFree_;

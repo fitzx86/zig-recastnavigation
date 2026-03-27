@@ -87,8 +87,8 @@ pub fn rasterizePolygonSoup(
     const triangle_count = triangles.len / 3;
 
     const allocator = std.heap.page_allocator;
-    var triangle_areas = std.ArrayList(u8).init(allocator);
-    triangle_areas.appendNTimes(0, triangle_count) catch unreachable;
+    var triangle_areas: std.ArrayList(u8) = .{};
+    triangle_areas.appendNTimes(allocator, 0, triangle_count) catch unreachable;
 
     Recast.rcMarkWalkableTriangles(
         nav_ctx,

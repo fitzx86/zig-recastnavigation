@@ -11,7 +11,7 @@ pub const dtAssertFailFunc = fn ([*c]const u8, [*c]const u8, c_int) callconv(.C)
 
 extern fn _1_dtAssertFailSetCustom_(assertFailFunc: [*c]dtAssertFailFunc) void;
 /// Sets the base custom assertion failure function to be used by Detour.
-///  @param[in] assertFailFunc 	The function to be invoked in case of failure of #dtAssert
+///  @param[in] assertFailFunc     The function to be invoked in case of failure of #dtAssert
 pub const dtAssertFailSetCustom = _1_dtAssertFailSetCustom_;
 
 extern fn _1_dtAssertFailGetCustom_() [*c]dtAssertFailFunc;
