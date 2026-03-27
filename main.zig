@@ -9,6 +9,3 @@ pub const DetourTileCache = @import("DetourTileCache/Include/DetourTileCache.zig
 pub const DetourTileCacheBuilder = @import("DetourTileCache/Include/DetourTileCacheBuilder.zig");
 
 pub const DetourPathCorridor = @import("DetourCrowd/Include/DetourPathCorridor.zig");
-
-pub const recast_util = @import("zigsrc/recast_util.zig");                                                                                                                                                                                
-pub const detour_util = @import("zigsrc/detour_util.zig");
