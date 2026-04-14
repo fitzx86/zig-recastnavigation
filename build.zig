@@ -57,7 +57,7 @@ pub fn build(b: *std.Build) void {
             "DetourCrowd/Include/DetourPathCorridor_glue.cpp",
             "DetourCrowd/Source/DetourPathCorridor.cpp",
         },
-        .flags = &.{},
+        .flags = &.{"-DDT_VIRTUAL_QUERYFILTER"},
     });
 
     // Create the static library from the C module
