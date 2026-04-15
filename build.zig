@@ -18,6 +18,11 @@ pub fn build(b: *std.Build) void {
     c_module.addIncludePath(b.path("DetourCrowd/Include"));
 
     c_module.addCSourceFiles(.{
+		.files = &.{ "Detour/Include/DetourNavMeshQuery_glue.cpp" },
+		.flags = &.{"-DDT_VIRTUAL_QUERYFILTER"},
+	});
+
+    c_module.addCSourceFiles(.{
         .files = &.{
             // Recast
             "Recast/Include/Recast_glue.cpp",
@@ -38,7 +43,6 @@ pub fn build(b: *std.Build) void {
             "Detour/Include/DetourCommon_glue.cpp",
             "Detour/Include/DetourNavMesh_glue.cpp",
             "Detour/Include/DetourNavMeshBuilder_glue.cpp",
-            "Detour/Include/DetourNavMeshQuery_glue.cpp",
             "Detour/Include/DetourNode_glue.cpp",
             "Detour/Include/DetourStatus_glue.cpp",
             "Detour/Source/DetourAlloc.cpp",
@@ -57,7 +61,7 @@ pub fn build(b: *std.Build) void {
             "DetourCrowd/Include/DetourPathCorridor_glue.cpp",
             "DetourCrowd/Source/DetourPathCorridor.cpp",
         },
-        .flags = &.{"-DDT_VIRTUAL_QUERYFILTER"},
+        .flags = &.{},
     });
 
     // Create the static library from the C module
